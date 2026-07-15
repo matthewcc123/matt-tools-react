@@ -124,9 +124,9 @@ function App() {
 
   return (
     <main className="w-screen h-screen p-8">
-      <div className="flex flex-col shadow h-full card w-200 m-auto">
+      <div className="flex flex-col shadow-xl rounded-lg h-full card w-200 m-auto">
 
-        <div className={`${soas.length == 0 ? "flex-1 min-h-0" : ""} relative p-4 flex flex-col gap-4 border-b border-stroke`}>
+        <div className={`${soas.length == 0 ? "flex-1 min-h-0" : ""} relative p-4 flex flex-col gap-4`}>
           
           <ProgressBar isIndeterminate={isBusy} className="absolute left-0 -bottom-px w-full"/>
 
@@ -137,7 +137,7 @@ function App() {
 
           {soas.length == 0 ? (
             <div className="flex-1 w-full min-h-0">
-              <DropZone className="h-full w-full" accept=".xls,.xlsx" onFilesDropped={(e) => handleFileDrop(e)}/> 
+              <DropZone className="h-full w-full rounded-lg" accept=".xls,.xlsx" onFilesDropped={(e) => handleFileDrop(e)}/> 
             </div>
           ) : ( 
           <div className="flex flex-row gap-3 relative shrink-0 items-center">
@@ -184,7 +184,7 @@ function App() {
 
           <motion.div 
 
-          className="p-4 space-y-2 overflow-auto scrollbar-thumb-control scrollbar-thin"
+          className="p-4 space-y-2 overflow-auto scrollbar-thumb-control scrollbar-thin border-t border-stroke"
           >
               {
                 soas?.map(soa => (

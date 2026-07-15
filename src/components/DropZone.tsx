@@ -95,7 +95,7 @@ export const DropZone: React.FC<DropZoneProps> = ({ onFilesDropped, className = 
       onDragLeave={handleDrag}
       onDrop={handleDrop}
       onClick={onButtonClick}
-      className={`flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-lg cursor-pointer transition-colors duration-200 ease-in-out select-none
+      className={`flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded cursor-pointer transition-colors duration-200 ease-in-out select-none
         ${isDragActive 
           ? 'border-blue-500 bg-blue-50/500' 
           : 'border-gray-300 bg-gray-50 hover:bg-gray-100'
