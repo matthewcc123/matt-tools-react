@@ -85,7 +85,7 @@
 	.inputBox {
 		@apply rounded;
 		@apply border;
-		@apply bg-base;
+		@apply bg-control-input;
 		@apply border-stroke; 
 		@apply disabled:bg-control-disabled;
 		@apply p-2;
@@ -110,6 +110,7 @@
 	--color-stroke-disabled: #e5e5e5; 
     
     --color-control: #fafdff;          
+	--color-control-input: #ffffff;  
     --color-control-hover: #eaeaea;   
     --color-control-selected: #dfdfdf; 
     --color-control-disabled: #f9f9f9;   
@@ -137,6 +138,7 @@
 		--color-stroke-disabled: #323232;
         
         --color-control: #383838;        
+		--color-control-input: #2a2a2a;        
         --color-control-hover: #444444; 
         --color-control-selected: #404040;
         --color-control-disabled: #2f2f2f;
