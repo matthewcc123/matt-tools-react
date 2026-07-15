@@ -36,7 +36,7 @@ export default function Modal({
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
 					transition={{ duration: 0.2, ease: easeOut }}
-					className="fixed flex justify-center pt-[32vh] z-50 min-w-screen min-h-screen inset-0 bg-gray-800/50 backdrop-blur-xs"
+					className="fixed flex justify-center pt-[32vh] z-50 min-w-screen min-h-screen inset-0 bg-black/30 backdrop-blur-xs"
 				>
 					<motion.div
 						key={"card"}

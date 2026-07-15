@@ -23,7 +23,6 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   // Bound the percentage between 0% and 100%
   const percentage = Math.min(Math.max((value / max) * 100, 0), 100);
 
-  // WinUI 3 Specific Accent Colors
   const statusColors = {
     // Fluent Accent Blue (Light/Dark Mode variants)
     normal: 'bg-brand',
@@ -34,23 +33,37 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   };
 
   return (
-    <div className={`w-full ${className} select-none`} role="progressbar" aria-valuenow={isIndeterminate ? undefined : percentage} aria-valuemin={0} aria-valuemax={100}>
-      {/* Outer Track: Thin 4px height, slightly transparent background, light stroke/border outline */}
-      <div className="relative w-full h-1 overflow-hidden rounded-full bg-[#0000001a] dark:bg-[#ffffff20] border border-[#00000008] dark:border-[#ffffff08]">
-        
-        {isIndeterminate ? (
-          /* Indeterminate State (Infinite Loading Track) */
-          <div
-            className={`absolute h-full rounded-full animate-winui-indeterminate ${statusColors[status]}`}
-          />
+    <div 
+    className={`w-full ${className} select-none`} 
+    role="progressbar" 
+    aria-valuenow={isIndeterminate ? undefined : percentage} 
+    aria-valuemin={0} 
+    aria-valuemax={100}
+    >
+
+    <div className="relative w-full h-1 overflow-hidden rounded-full">
+
+      {isIndeterminate ? (
+        /*Indeterminate State*/
+        <div
+        className={`absolute h-full rounded-full animate-winui-indeterminate ${
+        status === 'normal' ? 'bg-brand' : statusColors[status]
+        }`}
+        />
         ) : (
-          /* Determinate State (Standard Progress Fill) */
+        /*Determinate State*/
+        <div className='relative w-full h-full'>
+          <hr className="absolute inset-0 my-auto rounded-full bg-stroke"/>
           <div
-            className={`h-full rounded-full transition-all duration-300 ease-out ${statusColors[status]}`}
-            style={{ width: `${percentage}%` }}
+          className={`absolute h-full rounded-full transition-all duration-300 ease-out ${
+          status === 'normal' ? 'bg-brand' : statusColors[status]
+          }`}
+          style={{ width: `${percentage}%` }}
           />
+        </div>
         )}
       </div>
+
     </div>
   );
 };

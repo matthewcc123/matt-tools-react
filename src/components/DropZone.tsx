@@ -97,8 +97,8 @@ export const DropZone: React.FC<DropZoneProps> = ({ onFilesDropped, className = 
       onClick={onButtonClick}
       className={`flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded cursor-pointer transition-colors duration-200 ease-in-out select-none
         ${isDragActive 
-          ? 'border-blue-500 bg-blue-50/500' 
-          : 'border-gray-300 bg-gray-50 hover:bg-gray-100'
+          ? 'border-brand bg-control-hover' 
+          : 'border-stroke bg-control hover:bg-control-hover'
         } ${className}`}
     >
       <input
@@ -113,13 +113,13 @@ export const DropZone: React.FC<DropZoneProps> = ({ onFilesDropped, className = 
       <div className="flex flex-col items-center justify-center pt-5 pb-6 px-4 text-center">
         {/* Upload Icon */}
         <ArrowUploadRegular fontSize={24} className={`mb-3 transition-colors duration-200 ${
-            isDragActive ? 'text-brand' : 'text-gray-400 dark:text-gray-500'
+            isDragActive ? 'text-brand' : 'text-font-secondary'
           }`}/>
         
-        <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+        <p className="mb-2 text-sm text-font-secondary">
           <span className="font-semibold">Click to select files</span> or drag and drop
         </p>
-        <p className="text-xs text-gray-400 dark:text-gray-500">
+        <p className="text-xs text-font-secondary">
           {accept ? `Accepted formats: ${formatAcceptedTypes(accept)}` : "Any file format supported"}
         </p>
       </div>

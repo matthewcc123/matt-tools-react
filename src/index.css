@@ -27,36 +27,24 @@
 		@apply w-fit;
 		@apply p-2;
 		@apply px-3;
-		@apply bg-base;
-		@apply hover:bg-control-hover/30;
-		@apply disabled:bg-control-disabled;
-		@apply text-sm;
-		@apply text-font-primary;
-		@apply disabled:text-font-secondary;
-		@apply rounded;
-		@apply cursor-pointer;
-		@apply border;
-		@apply border-stroke;
-	}
-
-	.button.disabled {
-		@apply bg-control-disabled;
-		@apply text-font-secondary;
-	}
-
-
-	.button-control {
-		@apply w-fit;
-		@apply p-2;
-		@apply px-3;
 		@apply bg-control;
 		@apply hover:bg-control-hover;
 		@apply disabled:bg-control-disabled;
 		@apply text-sm;
 		@apply text-font-primary;
-		@apply disabled:text-font-secondary;
+		@apply disabled:text-font-disabled;
 		@apply rounded;
 		@apply cursor-pointer;
+		@apply border;
+		@apply border-stroke;
+		@apply transition-colors;
+		@apply duration-75;
+	}
+
+	.button.disabled {
+		@apply bg-control-disabled;
+		@apply text-font-disabled;
+		@apply border-stroke-disabled;
 	}
 
 	.button-primary {
@@ -65,12 +53,17 @@
 		@apply px-3;
 		@apply bg-brand;
 		@apply hover:bg-brand-hover;
-		@apply disabled:bg-control-disabled;
+		@apply disabled:bg-control-selected;
 		@apply text-sm;
 		@apply text-font-invert;
-		@apply disabled:text-font-secondary;
+		@apply disabled:text-font-disabled;
 		@apply rounded;
 		@apply cursor-pointer;
+		@apply border;
+		@apply border-brand-hover;
+		@apply disabled:border-stroke;
+		@apply transition-colors;
+		@apply duration-75;
 	}
 
 	.button-reveal {
@@ -78,49 +71,87 @@
 		@apply p-2;
 		@apply px-3;
 		@apply bg-transparent;
-		@apply hover:bg-control-hover/30;
-		@apply disabled:bg-control-disabled;
+		@apply hover:bg-control-hover;
+		@apply disabled:bg-transparent;
 		@apply text-sm;
 		@apply text-font-secondary;
-		@apply disabled:text-font-secondary;
+		@apply disabled:text-font-disabled;
 		@apply rounded;
 		@apply cursor-pointer;
-		@apply transition;
-		@apply duration-200;
+		@apply transition-colors;
+		@apply duration-75;
 	}
 
 	.inputBox {
 		@apply rounded;
 		@apply border;
+		@apply bg-base;
 		@apply border-stroke; 
 		@apply disabled:bg-control-disabled;
 		@apply p-2;
 		@apply text-sm;
 		@apply cursor-text;
 		@apply cursor-pointer;
-		@apply disabled:text-font-secondary;
+		@apply disabled:text-font-disabled;
 	}
 
 	input:disabled:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px rgb(229 231 235) inset;
-    -webkit-text-fill-color: rgb(107 114 128);
-  }
+		-webkit-box-shadow: 0 0 0 1000px rgb(229 231 235) inset;
+		-webkit-text-fill-color: rgb(107 114 128);
+  	}
 }
 
 @theme {
-	--color-root: #f5f5f5;
-	--color-base: var(--color-white);
-	--color-secondary: var(--color-gray-100);
-	--color-stroke: #e5e5e5;
-	--color-control: #d8d8d8;
-	--color-control-disabled: #c5c5c5;
-	--color-control-hover: #c8c8c8;
-	--color-control-selected: #eaeaea;
-	--color-brand: #0067c0;
-	--color-brand-hover: #005cac;
-	--color-font-primary: #222222;
-	--color-font-secondary: #626262;
-	--color-font-invert: #ffffff;
+
+    --color-root: #f0f0f0;    
+    --color-base: #ffffff;          
+    --color-secondary: #eeeeee;
+    --color-stroke: #e5e5e5;            
+	--color-stroke-disabled: #e5e5e5; 
+    
+    --color-control: #fafdff;          
+    --color-control-hover: #eaeaea;   
+    --color-control-selected: #dfdfdf; 
+    --color-control-disabled: #f9f9f9;   
+    
+    --color-brand: #0067c0;              
+    --color-brand-hover: #005cac;        
+    
+    --color-font-primary: #000000;       
+    --color-font-secondary: #5f5f5f;     
+    --color-font-invert: #ffffff;
+	--color-font-disabled: #a0a0a0;
+
+	--color-status-paused: #878787;  
+    --color-status-error: #e81123; 
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@variant dark{
+
+        --color-root: #202020;          
+        --color-base: #2d2d2d;          
+        --color-secondary: #1c1c1c;      
+        --color-stroke: #3c3c3c;         
+		--color-stroke-disabled: #323232;
+        
+        --color-control: #383838;        
+        --color-control-hover: #444444; 
+        --color-control-selected: #404040;
+        --color-control-disabled: #2f2f2f;
+        
+        --color-brand: #60cdff;          
+        --color-brand-hover: #4cc3ff;    
+        
+        --color-font-primary: #ffffff;   
+        --color-font-secondary: #c7c7c7; 
+        --color-font-invert: #000000;    
+		--color-font-disabled: #666666;
+
+		--color-status-paused: #9e9e9e;
+        --color-status-error: #ff99a4;
+
 }
 
 @keyframes progressBar {
