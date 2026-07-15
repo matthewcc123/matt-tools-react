@@ -1,4 +1,5 @@
 import * as XLSX from "xlsx-js-style";
+import type { SOAFile } from "../types/SOAFile";
 
 const HeaderStyle: XLSX.CellStyle = {
     font: {
@@ -53,18 +54,18 @@ const ColumnFormats: Record<string, { type: string; format: string }> = {
     },
 };
 
-export async function Merge(files: File[]): Promise<XLSX.WorkBook> {
+export async function Merge(soa: SOAFile[]): Promise<XLSX.WorkBook> {
 
-    if (files.length === 0)
+    if (soa.length === 0)
         throw new Error("Please select at least one Excel file.");
 
     const mergedRows: unknown[][] = [];
 
-    for (let i = 0; i < files.length; i++) {
+    for (let i = 0; i < soa.length; i++) {
 
-        const file = files[i];
+        const file = soa[i].file;
 
-        const cabang = file.name.split("_")[0];
+        const cabang = soa[i].cabang;
 
         const buffer = await file.arrayBuffer();
 

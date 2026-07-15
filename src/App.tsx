@@ -6,12 +6,7 @@ import { useModalService } from "./contexts/ModalContext";
 import * as XLSX from "xlsx-js-style";
 import { ProgressBar } from "./components/ProgressBar";
 import { AnimatePresence, motion } from "framer-motion";
-
-type SOAFile = {
-  id: number;
-  file: File;
-  cabang: string;
-}
+import type { SOAFile } from "./types/SOAFile";
 
 function App() {
 
@@ -64,8 +59,11 @@ function App() {
 
   function ChangeCabangName(inputText: string, id: number)
   {
-    const newSoas: SOAFile[] = [...soas];
-    newSoas[id].cabang = inputText;
+    const newSoas = soas.map((soa) => soa.id === id
+        ? { ...soa, cabang: inputText }
+        : soa
+    );
+
     setSoas(newSoas);
   }
 
@@ -89,7 +87,7 @@ function App() {
     setBusy(true);
 
     try{
-      const merged = await Merge(soas.map(soa => soa.file));
+      const merged = await Merge(soas);
 
       setBusy(false);
 
