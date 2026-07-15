@@ -9,13 +9,14 @@ import type { SOAFile } from "./types/SOAFile";
 import { Merge } from "./utils/Merge";
 import { useTheme } from "./utils/useTheme";
 
+  let idSeq: number = 0;
+
 function App() {
 
   const modalService = useModalService();
   const {isDark, toggleTheme} = useTheme();
   const [isBusy,setBusy] = useState(false);
   const [soas,setSoas] = useState<SOAFile[]>([]);
-  let idSeq: number = 0;
 
   function handleFilePicker(pickFiles: FileList | null) {
     if (pickFiles == null) return;
@@ -32,6 +33,7 @@ function App() {
         file: file,
         cabang: !cabangName ? fileName : cabangName,
       }
+      console.log(idSeq);
       newSoas.push(newFile);
     });
 
@@ -199,7 +201,7 @@ function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2 }}
                   key={soa.id} className="card bg-control py-1 px-3 flex flex-row items-center justify-between gap-2 shadow-xs">
-                    <p className="flex-1 text-xs flex truncate">{soa.file.name}</p>
+                    <p className="flex-1 text-xs flex truncate">{soa.id}</p>
                     <input 
                       disabled={isBusy}
                       className="w-[60%] max-w-150 shrink-0 inputBox text-xs" 
