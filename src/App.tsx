@@ -126,7 +126,7 @@ function App() {
     <main className="w-screen h-screen p-8">
       <div className="flex flex-col shadow h-full card w-200 m-auto">
 
-        <div className={`${soas.length == 0 ? "flex-1 min-h-0" : ""} relative p-4 flex flex-col gap-2 border-b border-stroke`}>
+        <div className={`${soas.length == 0 ? "flex-1 min-h-0" : ""} relative p-4 flex flex-col gap-4 border-b border-stroke`}>
           
           <ProgressBar isIndeterminate={isBusy} className="absolute left-0 -bottom-px w-full"/>
 
