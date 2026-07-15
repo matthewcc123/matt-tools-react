@@ -42,6 +42,26 @@ function App() {
 
   }
 
+  function handleFileDrop(dropFiles: File[] | null) {
+    if (dropFiles == null) return;
+    
+    const newSoas: SOAFile[] = [...soas];
+
+    dropFiles.forEach(file => {
+      const fileName: string = file.name.replace(/\.xlsx?$/i, "");
+      const cabangName: string | null = fileName.split(`_`)[1];
+      const newFile: SOAFile = {
+        id: idSeq++,
+        file: file,
+        cabang: !cabangName ? fileName : cabangName,
+      }
+      newSoas.push(newFile);
+    });
+
+    setSoas(newSoas);
+
+  }
+
   function ChangeCabangName(inputText: string, id: number)
   {
     const newSoas: SOAFile[] = [...soas];
@@ -117,7 +137,7 @@ function App() {
 
           {soas.length == 0 ? (
             <div className="flex-1 w-full min-h-0">
-              <DropZone className="h-full w-full" accept=".xls,.xlsx" onFilesDropped={(e) => handleFilePicker(e)}/> 
+              <DropZone className="h-full w-full" accept=".xls,.xlsx" onFilesDropped={(e) => handleFileDrop(e)}/> 
             </div>
           ) : ( 
           <div className="flex flex-row gap-3 relative shrink-0 items-center">

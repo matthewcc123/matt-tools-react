@@ -2,7 +2,7 @@ import { ArrowUploadRegular } from '@fluentui/react-icons';
 import React, { useState, useRef, type DragEvent, type ChangeEvent } from 'react';
 
 interface DropZoneProps {
-  onFilesDropped?: (files: FileList) => void;
+  onFilesDropped?: (files: File[]) => void;
   className?: string;
   accept?: string; // e.g., "image/*", ".pdf,.docx"
 }
@@ -37,16 +37,49 @@ export const DropZone: React.FC<DropZoneProps> = ({ onFilesDropped, className = 
     e.stopPropagation();
     setIsDragActive(false);
 
-    if (e.dataTransfer.files && e.dataTransfer.files.length > 0 && onFilesDropped) {
-      onFilesDropped(e.dataTransfer.files);
-    }
+    if (!e.dataTransfer.files || !onFilesDropped) return;
+
+    const files = Array.from(e.dataTransfer.files);
+
+    const acceptedFiles = files.filter(file => isFileAccepted(file, accept));
+
+    onFilesDropped(acceptedFiles);
+  };
+
+  // Handle accepted files
+  const isFileAccepted = (file: File, accept?: string): boolean => {
+    if (!accept) return true;
+
+    const acceptRules = accept
+      .split(",")
+      .map(rule => rule.trim().toLowerCase());
+
+    const fileName = file.name.toLowerCase();
+    const fileType = file.type.toLowerCase();
+
+    return acceptRules.some(rule => {
+      // Extension (.pdf, .docx)
+      if (rule.startsWith(".")) {
+        return fileName.endsWith(rule);
+      }
+
+      // Wildcard MIME (image/*)
+      if (rule.endsWith("/*")) {
+        const category = rule.slice(0, -1); // "image/"
+        return fileType.startsWith(category);
+      }
+
+      // Exact MIME (application/pdf)
+      return fileType === rule;
+    });
   };
 
   // Handles files selected via the standard file explorer click
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (e.target.files && e.target.files.length > 0 && onFilesDropped) {
-      onFilesDropped(e.target.files);
+      const addedFiles: File[] = [...e.target.files];
+      onFilesDropped(addedFiles);
     }
   };
 
