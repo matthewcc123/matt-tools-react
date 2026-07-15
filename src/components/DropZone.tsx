@@ -117,7 +117,7 @@ export const DropZone: React.FC<DropZoneProps> = ({ onFilesDropped, className = 
           }`}/>
         
         <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-          <span className="font-semibold">Click to upload</span> or drag and drop
+          <span className="font-semibold">Click to select files</span> or drag and drop
         </p>
         <p className="text-xs text-gray-400 dark:text-gray-500">
           {accept ? `Accepted formats: ${formatAcceptedTypes(accept)}` : "Any file format supported"}
