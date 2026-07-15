@@ -5,7 +5,7 @@ A collection of simple utilities built to streamline everyday workflows and impr
 ## Tech Stack
 
 - **Current:** React.js
-- **Previous:** WinForms → .NET MAUI Blazor
+- **Previous:** WinForms → .NET MAUI Blazor → WinUI3
 
 ## Project Background
 
