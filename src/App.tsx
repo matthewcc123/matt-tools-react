@@ -172,11 +172,11 @@ function App() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2 }}
-                  key={soa.id} className="card py-2 px-3 flex flex-row items-center justify-between gap-2 shadow-xs">
-                    <p className="truncate min-w-0 flex-1">{soa.file.name}</p>
+                  key={soa.id} className="card py-1 px-3 flex flex-row items-center justify-between gap-2 shadow-xs">
+                    <p className="truncate min-w-0 flex-1 text-xs">{soa.file.name}</p>
                     <input 
                       disabled={isBusy}
-                      className="w-full max-w-80 shrink-0 inputBox" 
+                      className="w-full max-w-80 shrink-0 inputBox text-xs" 
                       type="text" 
                       onChange={(e) => ChangeCabangName(e.target.value, soa.id)} 
                       value={soa.cabang}
