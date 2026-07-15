@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@layer base {
+	html {
+		@apply bg-root;
+		@apply text-font-primary;
+		@apply antialiased;
+	}
+}
+
+@layer components {
+	.card {
+		@apply bg-base;
+		@apply border;
+		@apply border-stroke;
+		@apply rounded;
+	}
+
+	.vl {
+		@apply border-l;
+		@apply border-stroke;
+		@apply h-full; 
+		@apply rounded;
+	}
+
+	.button {
+		@apply w-fit;
+		@apply p-2;
+		@apply px-3;
+		@apply bg-base;
+		@apply hover:bg-control-hover/30;
+		@apply disabled:bg-control-disabled;
+		@apply text-sm;
+		@apply text-font-primary;
+		@apply disabled:text-font-secondary;
+		@apply rounded;
+		@apply cursor-pointer;
+		@apply border;
+		@apply border-stroke;
+	}
+
+	.button.disabled {
+		@apply bg-control-disabled;
+		@apply text-font-secondary;
+	}
+
+
+	.button-control {
+		@apply w-fit;
+		@apply p-2;
+		@apply px-3;
+		@apply bg-control;
+		@apply hover:bg-control-hover;
+		@apply disabled:bg-control-disabled;
+		@apply text-sm;
+		@apply text-font-primary;
+		@apply disabled:text-font-secondary;
+		@apply rounded;
+		@apply cursor-pointer;
+	}
+
+	.button-primary {
+		@apply w-fit;
+		@apply p-2;
+		@apply px-3;
+		@apply bg-brand;
+		@apply hover:bg-brand-hover;
+		@apply disabled:bg-control-disabled;
+		@apply text-sm;
+		@apply text-font-invert;
+		@apply disabled:text-font-secondary;
+		@apply rounded;
+		@apply cursor-pointer;
+	}
+
+	.button-reveal {
+		@apply w-fit;
+		@apply p-2;
+		@apply px-3;
+		@apply bg-transparent;
+		@apply hover:bg-control-hover/30;
+		@apply disabled:bg-control-disabled;
+		@apply text-sm;
+		@apply text-font-secondary;
+		@apply disabled:text-font-secondary;
+		@apply rounded;
+		@apply cursor-pointer;
+		@apply transition;
+		@apply duration-200;
+	}
+
+	.inputBox {
+		@apply rounded;
+		@apply border;
+		@apply border-stroke; 
+		@apply disabled:bg-control-disabled;
+		@apply p-2;
+		@apply text-sm;
+		@apply cursor-text;
+		@apply cursor-pointer;
+		@apply disabled:text-font-secondary;
+	}
+
+	input:disabled:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px rgb(229 231 235) inset;
+    -webkit-text-fill-color: rgb(107 114 128);
+  }
+}
+
+@theme {
+	--color-root: #f5f5f5;
+	--color-base: var(--color-white);
+	--color-secondary: var(--color-gray-100);
+	--color-stroke: #e5e5e5;
+	--color-control: #d8d8d8;
+	--color-control-disabled: #c5c5c5;
+	--color-control-hover: #c8c8c8;
+	--color-control-selected: #eaeaea;
+	--color-brand: #0067c0;
+	--color-brand-hover: #005cac;
+	--color-font-primary: #222222;
+	--color-font-secondary: #626262;
+	--color-font-invert: #ffffff;
+}
+
+@keyframes progressBar {
+  0% {
+    left: -40%;
+    width: 30%;
+  }
+  50% {
+    left: 40%;
+    width: 60%;
+  }
+  100% {
+    left: 100%;
+    width: 0%;
+  }
+}
+
+.animate-winui-indeterminate {
+  animation: progressBar 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
