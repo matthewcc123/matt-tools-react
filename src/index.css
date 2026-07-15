@@ -86,13 +86,22 @@
 		@apply rounded;
 		@apply border;
 		@apply bg-control-input;
+		@apply focus:bg-control-input-selected;
 		@apply border-stroke; 
 		@apply disabled:bg-control-disabled;
 		@apply p-2;
 		@apply text-sm;
 		@apply cursor-text;
-		@apply cursor-pointer;
+		@apply cursor-text;
 		@apply disabled:text-font-disabled;
+		@apply focus:outline-hidden;
+		@apply transition-colors;
+		@apply duration-75;
+		
+		@apply bg-bottom bg-no-repeat;
+		@apply focus:bg-[linear-gradient(to_right,var(--color-brand),var(--color-brand))];
+		@apply focus:bg-size-[calc(100%)_2px];
+
 	}
 
 	input:disabled:-webkit-autofill {
@@ -112,7 +121,8 @@
     --color-control: #fafdff;          
 	--color-control-input: #ffffff;  
     --color-control-hover: #eaeaea;   
-    --color-control-selected: #dfdfdf; 
+	--color-control-selected: #ffffff;  
+    --color-control-input-selected: #ffffff; 
     --color-control-disabled: #f9f9f9;   
     
     --color-brand: #0067c0;              
@@ -141,6 +151,7 @@
 		--color-control-input: #2a2a2a;        
         --color-control-hover: #444444; 
         --color-control-selected: #404040;
+		--color-control-input-selected: #252525;  
         --color-control-disabled: #2f2f2f;
         
         --color-brand: #60cdff;          
