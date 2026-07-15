@@ -49,7 +49,7 @@ function App() {
 
     dropFiles.forEach(file => {
       const fileName: string = file.name.replace(/\.xlsx?$/i, "");
-      const cabangName: string | null = fileName.split(`_`)[1];
+      const cabangName: string | null = fileName.split(`_`)[0];
       const newFile: SOAFile = {
         id: idSeq++,
         file: file,
