@@ -201,7 +201,7 @@ function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2 }}
                   key={soa.id} className="card bg-control py-1 px-3 flex flex-row items-center justify-between gap-2 shadow-xs">
-                    <p className="flex-1 text-xs flex truncate">{soa.id}</p>
+                    <p className="flex-1 text-xs flex truncate">{soa.file.name}</p>
                     <input 
                       disabled={isBusy}
                       className="w-[60%] max-w-150 shrink-0 inputBox text-xs" 
