@@ -179,7 +179,7 @@ function App() {
 
               <div className="hidden sm:block h-6 w-px bg-stroke self-center"/>
 
-              <div className="card p-2 text-sm">
+              <div className="card bg-control p-2 px-3 text-sm">
                 <p className="text-nowrap">{`SOA Files: ${soas.length}`}</p>
               </div>
 
@@ -200,7 +200,7 @@ function App() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2 }}
-                  key={soa.id} className="card py-1 px-3 flex flex-row items-center justify-between gap-2 shadow-xs">
+                  key={soa.id} className="card py-1 px-3 flex flex-row items-center justify-between gap-2 shadow-sm">
                     <p className="flex-1 text-xs flex truncate">{soa.file.name}</p>
                     <input 
                       disabled={isBusy}

@@ -112,7 +112,7 @@ export const DropZone: React.FC<DropZoneProps> = ({ onFilesDropped, className = 
       
       <div className="flex flex-col items-center justify-center pt-5 pb-6 px-4 text-center">
         {/* Upload Icon */}
-        <ArrowUploadRegular fontSize={24} className={`mb-3 transition-colors duration-200 ${
+        <ArrowUploadRegular fontSize={24} className={`mb-3 transition-colors duration-75 ${
             isDragActive ? 'text-brand' : 'text-font-secondary'
           }`}/>
         
