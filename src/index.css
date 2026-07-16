@@ -9,6 +9,13 @@
 }
 
 @layer components {
+
+	.preload, .preload * {
+        transition: none !important;
+        -webkit-transition: none !important;
+        -moz-transition: none !important;
+    }
+
 	.card {
 		@apply bg-base;
 		@apply border;
@@ -113,6 +120,7 @@
 @theme {
 
     --color-root: #f0f0f0;    
+	--color-root-dark: #202020;
     --color-base: #ffffff;          
     --color-secondary: #eeeeee;
     --color-stroke: #e5e5e5;            
