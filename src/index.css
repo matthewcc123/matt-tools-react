@@ -127,6 +127,7 @@
 	--color-stroke-disabled: #e5e5e5; 
     
     --color-control: #ffffff;          
+	--color-control-secondary: #f2f2f2;          
 	--color-control-input: #ffffff;  
     --color-control-hover: #f7f7f7;   
 	--color-control-selected: #ffffff;  
@@ -156,6 +157,7 @@
 		--color-stroke-disabled: #323232;
         
         --color-control: #383838;        
+		--color-control-secondary: #383838;        
 		--color-control-input: #2a2a2a;        
         --color-control-hover: #444444; 
         --color-control-selected: #404040;

@@ -192,7 +192,7 @@ function App() {
 
           <motion.div 
 
-          className="p-4 space-y-2 overflow-auto scrollbar-thumb-control scrollbar-thin border-t border-stroke"
+          className="p-4 space-y-2 overflow-auto scrollbar-thumb-control-secondary scrollbar-thin border-t border-stroke"
           >
               {
                 soas?.map(soa => (

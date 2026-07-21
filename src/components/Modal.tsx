@@ -44,12 +44,12 @@ export default function Modal({
 						animate={{ opacity: 1, scale: 1 }}
 						exit={{ opacity: 0, scale: 1.1 }}
 						transition={{ duration: 0.1, ease: easeOut }}
-						className="origin-center card flex flex-col justify-between rounded-md min-w-90 max-w-xl h-fit max-h-screen shadow-md"
+						className="origin-center card flex flex-col justify-between rounded-md min-w-90 max-w-xl h-fit max-h-screen shadow-md overflow-clip"
 					>
 						<div className="p-6 pb-3">
 							<p className="font-medium text-xl ">{title}</p>
 						</div>
-						<div className="flex-1 p-6 pt-0 overflow-auto scrollbar-thin">
+						<div className="flex-1 p-6 pt-0 overflow-auto scrollbar-thin scrollbar-thumb-control-secondary">
 							{body}
 						</div>
 						<div className="bg-secondary p-6 flex justify-end gap-2">
